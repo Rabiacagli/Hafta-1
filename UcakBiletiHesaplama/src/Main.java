@@ -7,50 +7,39 @@ public class Main {
 
         //Değişkenleri belirliyoruz
         System.out.print("Mesafe(KM):");
-        int mesafe = input.nextInt();
+        int distance = input.nextInt();
 
         System.out.print("Yaş: ");
-        int yas = input.nextInt();
+        int age = input.nextInt();
 
         System.out.print("Yolculuk tipi (1: Tek Yön, 2: Gidiş-Dönüş) : ");
-        int yolculukTipi = input.nextInt();
+        int tripType = input.nextInt();
 
-
-        double biletFiyati1 = mesafe * 0.10;  // mesafe başına bilet ücreti
-        double biletFiyati2 = biletFiyati1*2; // çift yön bilet ücreti
+        double price = distance * 0.10;  // mesafe başına bilet ücreti belirliyoruz
 
         // Yaş koşullarını ve indirimleri belirliyoruz
-        if (yas <= 0 || mesafe <= 0 || (yolculukTipi != 1 && yolculukTipi != 2)) {
+        if (age <= 0 || distance <= 0 || (tripType != 1 && tripType != 2)) {
             System.out.println("Hatalı Veri Girdiniz! ");
         } else {
 
             //Tek yön olması durumundaki yaş indirimleri
-            if (yolculukTipi == 1) {
+            if (tripType == 1) {
 
-                if (yas < 12) {
-                    biletFiyati1*=0.50;
+                if (age < 12) {
+                    price *= 0.50;
 
-                } else if (yas >= 12 && yas <= 24) {
-                    biletFiyati1 *= 0.90;
+                } else if (age >= 12 && age <= 24) {
+                    price *= 0.90;
 
-                } else if (yas >= 65) {
-                    biletFiyati1 *= 0.70;
+                } else if (age >= 65) {
+                    price *= 0.70;
 
-                } //tek yön için koşullar sağlanırsa ekrana yazdırıyoruz
-                System.out.println("Bilet Fiyatı: " + biletFiyati1 + " TL");
-
-                // Çift yön olması durumunda yaş indirimleri hesaplanır
-            }else {
-                if (yas < 12) {
-                    biletFiyati2*=0.50;
-
-                } else if (yas >= 12 && yas <= 24) {
-                    biletFiyati2 *= 0.90;
-
-                } else if (yas >= 65) {
-                    biletFiyati2 *= 0.70;
-                }//çift yön için koşullar sağlanırsa ekrana yazdırıyoruz
-                System.out.println("Bilet Fiyatı: " + (biletFiyati2*0.80) + " TL");
+                }  if (tripType == 2) {
+                    // Gidiş dönüş seçilmişse %20 indirim
+                    price *= 0.8;
+                    price = price * 2;    // Gidiş dönüş seçilmişse biletler 2 katı
+                }
+                System.out.println("Toplam bilet fiyatı: " + price + " TL");;
             }
         }
     }

@@ -1,9 +1,8 @@
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
+      // kullanıcıdan veri alabilmek için Scanner sınıfını yazıyor ve değişkenleri atıyoruz.
         Scanner inp = new Scanner(System.in);
-
         int n1, n2;
         int ebob = 1;
         int i = 1;
@@ -14,6 +13,8 @@ public class Main {
         System.out.print("2. Sayıyı Giriniz: ");
         n2 = inp.nextInt();
 
+        // 1. ve 2. sayının birbirlerinden büyük olma koşuluna göre döngüler oluşturuyoruz
+        // koşulun sağlanması durumunda ekrana yazdırıyoruz
         if (n1 <= n2) {
             while (i <= n1) {
                 if (n1 % i == 0 && n2 % i == 0) {
